@@ -1,0 +1,6 @@
+@TstCompras_HostAddress = http://localhost:5146
+
+GET {{TstCompras_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
