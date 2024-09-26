@@ -9,24 +9,23 @@ namespace TstCompras.Controllers
     [ApiController]
     public class MateriaisController : ControllerBase
     {
-        private readonly MateriaisService _materiaisService; // Adicionado campo
+        private readonly MateriaisService _materiaisService;
 
         public MateriaisController(MateriaisService materiaisService)
         {
-            _materiaisService = materiaisService; // Corrigido
+            _materiaisService = materiaisService;
         }
 
-  [HttpGet("getById/{codigo_item}")] // Corrigido a rota
-public async Task<ActionResult<Materiais>> GetMaterial(int codigo_item)
-{
-    var materiais = await _materiaisService.GetMaterial(codigo_item); // Corrigido
-    if (materiais == null)
-    {
-        return NotFound();
-    }
+        [HttpGet("getById/{codigoItem}")] // Ajustada a rota
+        public async Task<ActionResult<Materiais>> GetMaterial(int codigoItem)
+        {
+            var materiais = await _materiaisService.GetMaterial(codigoItem);
+            if (materiais == null)
+            {
+                return NotFound();
+            }
 
-    return Ok(materiais); 
-}
-
+            return Ok(materiais); 
+        }
     }
 }

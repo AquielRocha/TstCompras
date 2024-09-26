@@ -1,27 +1,56 @@
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace TstCompras.Models
 {
     public class Materiais
     {
-        [JsonProperty("codigo")]
-        public int Codigo { get; set; }
+        [JsonProperty("codigoGrupo")]
+        public int CodigoGrupo { get; set; }
 
-        [JsonProperty("descricao")]
-        public string Descricao { get; set; }
+        [JsonProperty("nomeGrupo")]
+        public string NomeGrupo { get; set; }
 
-        // Os outros campos não são necessários se você não os vai usar
+        [JsonProperty("codigoClasse")]
+        public int CodigoClasse { get; set; }
+
+        [JsonProperty("nomeClasse")]
+        public string NomeClasse { get; set; }
+
+        [JsonProperty("codigoPdm")]
+        public int CodigoPdm { get; set; }
+
+        [JsonProperty("nomePdm")]
+        public string NomePdm { get; set; }
+
+        [JsonProperty("codigoItem")]
+        public int CodigoItem { get; set; }
+
+        [JsonProperty("descricaoItem")]
+        public string DescricaoItem { get; set; }
+
+        [JsonProperty("statusItem")]
+        public bool StatusItem { get; set; }
+
+        [JsonProperty("itemSustentavel")]
+        public bool ItemSustentavel { get; set; }
+
+        [JsonProperty("dataHoraAtualizacao")]
+        public string DataHoraAtualizacao { get; set; }
     }
 
     public class MateriaisResponse
     {
-        [JsonProperty("_embedded")]
-        public Embedded Embedded { get; set; }
-    }
+        [JsonProperty("resultado")]
+        public List<Materiais> Resultado { get; set; }
 
-    public class Embedded
-    {
-        [JsonProperty("materiais")]
-        public List<Materiais> Materiais { get; set; }
+        [JsonProperty("totalRegistros")]
+        public int TotalRegistros { get; set; }
+
+        [JsonProperty("totalPaginas")]
+        public int TotalPaginas { get; set; }
+
+        [JsonProperty("paginasRestantes")]
+        public int PaginasRestantes { get; set; }
     }
 }

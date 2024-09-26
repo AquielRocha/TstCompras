@@ -46,3 +46,4 @@ C:\Users\07092621160\Desktop\ICMBIO\TstCompras\bin\Debug\net8.0\Newtonsoft.Json.
 C:\Users\07092621160\Desktop\ICMBIO\TstCompras\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 C:\Users\07092621160\Desktop\ICMBIO\TstCompras\bin\Debug\net8.0\Npgsql.dll
 C:\Users\07092621160\Desktop\ICMBIO\TstCompras\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\07092621160\Desktop\ICMBIO\TstCompras\obj\Debug\net8.0\TstCompras.sourcelink.json
