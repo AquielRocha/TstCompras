@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TstCompras")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ced0742c8d08b1819c663c5067e15ba8e4632a1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ecf35a9278bd8e52989d1577c7aa2f782f015bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("TstCompras")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TstCompras")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

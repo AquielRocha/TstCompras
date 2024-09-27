@@ -18,6 +18,7 @@ builder.Services.AddCors(options =>
 // Adicionando HttpClient
 builder.Services.AddHttpClient<IOrgaoService, OrgaoService>();
 builder.Services.AddHttpClient<MateriaisService>();
+builder.Services.AddHttpClient<PrecoService>();
 
 // Configurar o contexto do banco de dados (usando PostgreSQL como exemplo)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

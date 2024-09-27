@@ -16,7 +16,7 @@ namespace TstCompras.Controllers
             _materiaisService = materiaisService;
         }
 
-        [HttpGet("getById/{codigoItem}")] // Ajustada a rota
+        [HttpGet("getById/{codigoItem}")] 
         public async Task<ActionResult<Materiais>> GetMaterial(int codigoItem)
         {
             var materiais = await _materiaisService.GetMaterial(codigoItem);
