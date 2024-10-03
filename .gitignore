@@ -1,0 +1,72 @@
+# Arquivos de compilação .NET
+bin/
+obj/
+
+# Pacotes NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Configurações do Visual Studio/VSCode
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Logs
+*.log
+
+# Arquivos de build
+build/
+out/
+
+# Arquivos de travamento
+.lock.json
+
+# Arquivos de banco de dados gerados por migrações
+*.mdf
+*.ldf
+
+# Arquivos temporários
+*_tmp/
+
+# Ignora arquivos sensíveis de configuração
+appsettings.json
+appsettings.Development.json
+appsettings.*.json
+
+# Ignora a pasta de migrações (opcional, dependendo se você quer versionar migrações)
+Migrations/
+
+# Node.js
+node_modules/
+
+# macOS
+.DS_Store
+
+# Expo, React Native e afins (se aplicável)
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+expo-env.d.ts
+.tamagui/
+
+# Firebase/Supabase/Vercel envs
+.env
+
+# Arquivos do Android/iOS para React Native (se aplicável)
+ios/
+android/
