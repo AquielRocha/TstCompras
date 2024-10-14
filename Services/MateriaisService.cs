@@ -1,37 +1,65 @@
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using TstCompras.Models;
+using System.Collections.Generic;
 
 namespace TstCompras.Services
 {
-    public class MateriaisService 
+    public class MateriaisService
     {
         private readonly HttpClient _httpClient;
 
-        public MateriaisService(HttpClient httpClient) 
+        public MateriaisService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<Materiais> GetMaterial(int codigoItem)
+        public async Task<List<ItemContrato>> GetItensPorUASG(int uasgId)
         {
-            // A URL agora tem os parâmetros padrão e o codigoItem como parâmetro de entrada
-            var response = await _httpClient.GetAsync($"https://dadosabertos.compras.gov.br/modulo-material/4_consultarItemMaterial?pagina=1&tamanhoPagina=10&codigoItem={codigoItem}&bps=false");
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var data = await response.Content.ReadAsStringAsync();
-                var materiaisResponse = JsonConvert.DeserializeObject<MateriaisResponse>(data);
+                // Requisição para obter contratos pela UASG
+                var response = await _httpClient.GetAsync($"https://contratos.comprasnet.gov.br/api/contrato/ug/{uasgId}");
                 
-                // Verifica se o resultado não está vazio
-                if (materiaisResponse?.Resultado?.Count > 0)
+                if (response.IsSuccessStatusCode)
                 {
-                    // Retorna o primeiro item da lista de resultados
-                    return materiaisResponse.Resultado[0]; 
+                    var data = await response.Content.ReadAsStringAsync();
+                    var contratos = JsonSerializer.Deserialize<List<Contrato>>(data);
+
+                    if (contratos == null || contratos.Count == 0)
+                    {
+                        return new List<ItemContrato>(); // Retorna uma lista vazia se não houver contratos
+                    }
+
+                    // Lista para armazenar os itens coletados de todos os contratos
+                    var todosItens = new List<ItemContrato>();
+
+                    // Iterar pelos contratos e buscar os itens de cada contrato
+                    foreach (var contrato in contratos)
+                    {
+                        var itensResponse = await _httpClient.GetAsync(contrato.ItensUrl);
+                        if (itensResponse.IsSuccessStatusCode)
+                        {
+                            var itensData = await itensResponse.Content.ReadAsStringAsync();
+                            var itens = JsonSerializer.Deserialize<List<ItemContrato>>(itensData);
+                            if (itens != null)
+                            {
+                                todosItens.AddRange(itens);
+                            }
+                        }
+                    }
+
+                    return todosItens;
                 }
             }
+            catch (HttpRequestException ex)
+            {
+                // Logar o erro (se você tiver um sistema de logging)
+                // throw new Exception("Erro ao buscar itens: " + ex.Message);
+            }
 
-            return null; 
+            return new List<ItemContrato>(); // Retorna uma lista vazia em caso de erro
         }
     }
 }

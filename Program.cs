@@ -18,11 +18,10 @@ builder.Services.AddCors(options =>
 // Adicionando HttpClient
 builder.Services.AddHttpClient<IOrgaoService, OrgaoService>();
 builder.Services.AddHttpClient<MateriaisService>();
-builder.Services.AddHttpClient<PrecoService>();
 
 // Configurar o contexto do banco de dados (usando PostgreSQL como exemplo)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("con")));
 
 // Configuração de controladores
 builder.Services.AddControllers();
