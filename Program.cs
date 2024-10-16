@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TstCompras.Data;
-using TstCompras.Services;
+// using TstCompras.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +16,7 @@ builder.Services.AddCors(options =>
 });
 
 // Adicionando HttpClient
-builder.Services.AddHttpClient<IOrgaoService, OrgaoService>();
-builder.Services.AddHttpClient<MateriaisService>();
+
 
 // Configurar o contexto do banco de dados (usando PostgreSQL como exemplo)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

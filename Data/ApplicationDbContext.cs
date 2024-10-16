@@ -18,7 +18,7 @@ namespace TstCompras.Data
             base.OnModelCreating(modelBuilder);
             
             // Mapeamento para as tabelas
-            modelBuilder.Entity<Materiais>().ToTable("materiais_compras");
+            modelBuilder.Entity<Materiais>().ToTable("materiais_compras2");
             modelBuilder.Entity<Servicos>().ToTable("servicos_compras");
 
             // Definindo a chave primária para 'Materiais'
