@@ -9,5 +9,8 @@ namespace TstCompras.Models
         public string nome_item { get; set; }
         public string descricao_item { get; set; }
         public int codigo_grupo { get; set; }
+        public string nome_grupo { get; set; }
+        public string nome_classe { get; set; }
+        public DateTime data_hora_atualizacao { get; set; }
     }
 }

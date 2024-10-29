@@ -9,5 +9,12 @@ namespace TstCompras.Models
         public int codigo { get; set; }
         public string? descricao { get; set; }
         public int? codigo_grupo { get; set; }
+
+        public int?  cpc { get; set; }
+
+        public int? codigo_secao { get; set; }
+        public int? codigo_divisao { get; set; }
+        public int? codigo_classe { get; set; }
+
     }
 }
