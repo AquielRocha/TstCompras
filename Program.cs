@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
 
 // Configurar o contexto do banco de dados (usando PostgreSQL como exemplo)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("con")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("TstComprasConnection")));
 
 // Configuração de controladores
 builder.Services.AddControllers();
