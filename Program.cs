@@ -31,12 +31,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configuração do middleware para uso do Swagger
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
 // Ativando o middleware de CORS
 app.UseCors("PermitirTudo");

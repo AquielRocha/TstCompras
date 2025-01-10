@@ -3,25 +3,7 @@ services:
   app:
     build: .
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ConnectionStrings__TstComprasConnection=Host=db;Port=5432;Database=TstCompras;Username=postgres;Password=asd
-      - ConnectionStrings__GeolocalConnection=Host=db;Port=5432;Database=Geolocal;Username=postgres;Password=asd
-    depends_on:
-      - db
-
-  db:
-    image: postgres:15
-    container_name: postgres_container
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: asd
-      POSTGRES_DB: TstCompras
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:
+      - ConnectionStrings__TstComprasConnection=Host=10.197.42.64;Port=5432;Database=TstCompras;Username=postgres;Password=asd
